@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="container-fluid">
-        <h1>Add New Employee</h1>
+        <h1>Update Employee</h1>
         <br><hr>
         <!--button reference pointing to controller endpoint-->
         <a th:href="@{/employees/list}" class="btn btn-primary">Back to Employee Listing</a>
         <form 
             method = "POST"
-            th:action="@{/employees/saveEmployee}"
+            th:action="@{/employees/updEmployee}"
             th:object="${employee}"
         >
             <div class="mb-3">

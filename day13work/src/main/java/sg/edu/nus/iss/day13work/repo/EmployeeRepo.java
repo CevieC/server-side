@@ -3,6 +3,11 @@ package sg.edu.nus.iss.day13work.repo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +19,7 @@ import sg.edu.nus.iss.day13work.model.Employee;
 @Repository
 public class EmployeeRepo {
     
-    final String dirPath = "C://Users/Cecila Chew/Documents";
+    final String dirPath = "c:\\data";
     final String fileName = "employee.txt";
 
     private List<Employee> employeeList;
@@ -63,10 +68,24 @@ public class EmployeeRepo {
         return employeeList.stream().filter(emp -> emp.getEmail().equals(email)).findFirst().get();
     }
 
+    public Boolean saveEmployee(Employee empSave) throws FileNotFoundException {
+        Boolean result = false;
+
+        result = employeeList.add(empSave);
+        File f = new File(dirPath + "/" + fileName);
+        OutputStream os = new FileOutputStream(f, true);
+        PrintWriter pw = new PrintWriter(os);
+        pw.println(empSave.toString());
+        pw.flush();
+        pw.close();
+
+        return result;
+    }
+
     public Boolean updateEmployee(Employee empUpdate) {
         Boolean result = false;
 
-        // retrieve objet originall in storage
+        // retrieve object originally in storage
         Employee empObj = employeeList.stream().filter(emp -> emp.getEmail().equals(empUpdate.getEmail())).findFirst().get();
 
         int employeeIdx = employeeList.indexOf(empObj);

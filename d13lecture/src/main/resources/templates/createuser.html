@@ -6,7 +6,8 @@
     <title>User Form</title>
 </head>
 <body>
-    <form method="POST" action="/user">
+    <!-- without thymeleaf: action="/user/users" -->
+    <form method="POST" th:action="@{/user/users}">
         <input type="text" name="name" placeholder="Enter your name">
         <br />
         <input type="email" name="email" placeholder="Enter your email">

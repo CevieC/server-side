@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+
+		<h2>Shopping Cart</h2>
+
+		<form 
+			method="POST" 
+			data-th-object="${Item}"
+		>
+			<table>
+				<tr>
+					<td>Item:</td>
+					<td>
+						<input type="text" name="name" size="30" 
+						data-th-field="*{name}"
+						>
+						<span data-th-if="${#fields.hasErrors('name')}"
+							data-th-errors="*{name}" data-th-errorclass="error"></span>
+
+						
+					</td>
+				</tr>
+				<tr>
+					<td>Quantity:</td>
+					<td>
+						<input type="number" name="quantity" min="1" size="30" value="1" 
+						data-th-field="*{quantity}"
+						>
+						<span data-th-if="${#fields.hasErrors('quantity')}"
+							data-th-errors="*{quantity}" data-th-errorclass="error"></span>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button type="submit" formaction="/cart"> Add to Cart </button>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<div>
+			<h2>Your Cart is Empty</h2>
+		</div>
+
+		<div>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Item</th>
+						<th>Quantity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Apple</td>
+						<td>10</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</body>
+</html>

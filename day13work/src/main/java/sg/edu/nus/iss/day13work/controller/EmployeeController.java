@@ -26,7 +26,7 @@ public class EmployeeController {
     @Autowired
     EmployeeRepo empRepo;
 
-    @GetMapping("add")
+    @GetMapping("/add")
     public String employeeAdd(Model m){
 
         Employee emp = new Employee();

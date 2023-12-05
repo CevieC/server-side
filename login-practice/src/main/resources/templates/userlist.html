@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Success</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div text-align="center">
+        <h2>Registration Succeeded!</h2>
+        <span>Username:</span><span data-th-text="${user.username}"></span><br/>
+        <span>E-mail:</span><span data-th-text="${user.email}"></span><br/>
+        <span>Password:</span><span data-th-text="${user.password}"></span><br/>
+        <span>Gender:</span><span data-th-text="${user.gender}"></span><br/>
+        <span>Occupation:</span><span data-th-text="${user.occupation}"></span><br/>
+        <span>Married?</span><span data-th-text="${user.isMarried}"></span><br/>
+    </div>
+</body>
+</html>

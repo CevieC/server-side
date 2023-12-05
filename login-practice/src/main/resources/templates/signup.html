@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <form data-th-object="${user}"
+        data-th-action="@{/register/userlist}"
+        method="POST">
+        <h1>User Account Sign Up</h1>
+
+        <label>Username:</label>
+        <input type = "text" placeholder="Set Username" data-th-field="*{username}"><br><br>
+        <!--input error message here-->
+
+        <label>Password:</label>
+        <input type = "text" placeholder="Set Password" data-th-field="*{password}"><br><br>
+
+        <label>Email:</label>
+        <input type = "email" placeholder="Set Email" data-th-field="*{email}" ><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" data-th-field="*{gender}" value="Male" />Male
+        <input type="radio" data-th-field="*{gender}" value="Female" />Female<br><br>
+
+        <label>Married</label>
+        <input type = "checkbox" data-th-field="*{isMarried}"><br><br>
+
+        <label>Occupation:</label>
+        <select data-th-field="*{occupation}">
+            <option data-th-each="o : ${listOccupation}" data-th-value="${o}" data-th-text="${o}"></option>
+        </select>
+
+        <br><br>
+          <button type = "submit">Create Account</button>
+          <button type = "submit" data-th-formmethod="GET" data-th-formaction="@{/index}">Back to Login</button>
+    </form>
+</body>
+</html>
